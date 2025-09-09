@@ -49,7 +49,7 @@ stop_event = threading.Event()
 
 
 def stop(
-    controller,  # Add any necessary arguments
+    controller: worker_controller.WorkerController,  # Add any necessary arguments
 ) -> None:
     """
     Stop the workers.

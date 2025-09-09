@@ -3,6 +3,7 @@ Heartbeat sending logic.
 """
 
 from pymavlink import mavutil
+from ..common.modules.logger import logger
 
 
 # =================================================================================================
@@ -36,7 +37,7 @@ class HeartbeatSender:
         self,
         key: object,
         connection: mavutil.mavfile,
-    ):
+    ) -> None:
         assert key is HeartbeatSender.__private_key, "Use create() method"
 
         # Do any intializiation here
@@ -44,8 +45,8 @@ class HeartbeatSender:
 
     def run(
         self,
-        logger,
-    ):
+        logger: logger.Logger,
+    ) -> None:
         """
         Attempt to send a heartbeat message.
         """

@@ -22,7 +22,7 @@ class HeartbeatReceiver:
         cls,
         connection: mavutil.mavfile,
         local_logger: logger.Logger,
-    ):
+    ) -> "tuple[True, HeartbeatReceiver] | tuple[False, None]":
         """
         Falliable create (instantiation) method to create a HeartbeatReceiver object.
         """
@@ -47,7 +47,7 @@ class HeartbeatReceiver:
 
     def run(
         self,
-    ):
+    ) -> None:
         """
         Attempt to recieve a heartbeat message.
         If disconnected for over a threshold number of periods,

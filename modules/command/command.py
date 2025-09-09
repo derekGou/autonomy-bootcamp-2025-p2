@@ -8,7 +8,7 @@ from pymavlink import mavutil
 
 from ..common.modules.logger import logger
 from ..telemetry import telemetry
-
+from utilities.workers import queue_proxy_wrapper
 
 class Position:
     """
@@ -38,8 +38,8 @@ class Command:  # pylint: disable=too-many-instance-attributes
         connection: mavutil.mavfile,
         target: Position,
         local_logger: logger.Logger,
-        data_queue,
-        response_queue,
+        data_queue: queue_proxy_wrapper.QueueProxyWrapper,
+        response_queue: queue_proxy_wrapper.QueueProxyWrapper,
     ):
         """
         Falliable create (instantiation) method to create a Command object.
@@ -58,8 +58,8 @@ class Command:  # pylint: disable=too-many-instance-attributes
         connection: mavutil.mavfile,
         target: Position,
         local_logger: logger.Logger,
-        data_queue,
-        response_queue,
+        data_queue: queue_proxy_wrapper.QueueProxyWrapper,
+        response_queue: queue_proxy_wrapper.QueueProxyWrapper,
     ) -> None:
         assert key is Command.__private_key, "Use create() method"
         self.connection = connection
@@ -71,7 +71,7 @@ class Command:  # pylint: disable=too-many-instance-attributes
 
     def run(
         self,
-    ):
+    ) -> None:
         """
         Make a decision based on received telemetry data.
         """

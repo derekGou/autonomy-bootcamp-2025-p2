@@ -50,7 +50,7 @@ def start_drone() -> None:
 #                            ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
 # =================================================================================================
 def stop(
-    controller,  # Add any necessary arguments
+    controller: worker_controller.WorkerController,  # Add any necessary arguments
 ) -> None:
     """
     Stop the workers.
@@ -59,7 +59,7 @@ def stop(
 
 
 def read_queue(
-    queue,  # Add any necessary arguments
+    queue:queue_proxy_wrapper.QueueProxyWrapper,  # Add any necessary arguments
     main_logger: logger.Logger,
 ) -> None:
     """

@@ -49,7 +49,7 @@ class Command:  # pylint: disable=too-many-instance-attributes
                 cls.__private_key, connection, target, local_logger, data_queue, response_queue
             )
             return [True, command]
-        except:
+        except (OSError, ValueError, EOFError):
             return [False, None]
 
     def __init__(

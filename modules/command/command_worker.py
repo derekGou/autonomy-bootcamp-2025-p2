@@ -57,7 +57,7 @@ def command_worker(
     #                          ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
     # =============================================================================================
     # Instantiate class object (command.Command)
-    result, command_worker = command.Command.create(
+    result, command_worker_object = command.Command.create(
         connection,
         target,
         local_logger=local_logger,
@@ -70,9 +70,9 @@ def command_worker(
     # Main loop: do work.
     while not controller.is_exit_requested():
         try:
-            command_worker.run()
-        except:
-            local_logger.error(f"Error in command worker", True)
+            command_worker_object.run()
+        except (OSError, ValueError, EOFError) as e:
+            local_logger.error(f"Error in command worker: {e}", True)
         time.sleep(period)
 
 

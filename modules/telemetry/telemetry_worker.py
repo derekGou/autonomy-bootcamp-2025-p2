@@ -67,8 +67,8 @@ def telemetry_worker(
                 else:
                     break  # no more messages right now
 
-        except:
-            local_logger.error(f"Telemetry worker error", True)
+        except (OSError, ValueError, EOFError) as e:
+            local_logger.error(f"Telemetry worker error: {e}", True)
             continue
 
     local_logger.info("Telemetry worker stopped", True)

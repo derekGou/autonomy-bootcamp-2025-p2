@@ -30,7 +30,7 @@ class HeartbeatSender:
                 connection,
             )
             return [True, sender]
-        except:
+        except (OSError, ValueError, EOFError):
             return [False, None]
 
     def __init__(
@@ -55,7 +55,7 @@ class HeartbeatSender:
                 mavutil.mavlink.MAV_TYPE_GCS, mavutil.mavlink.MAV_AUTOPILOT_INVALID, 0, 0, 0
             )
             local_logger.info("Heartbeat Sent")
-        except:
+        except (OSError, ValueError, EOFError):
             local_logger.error("Heartbeat Sender Error")
 
 

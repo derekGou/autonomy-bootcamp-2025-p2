@@ -29,7 +29,7 @@ class HeartbeatReceiver:
         try:
             receiver = cls(cls.__private_key, connection, True, local_logger)
             return [True, receiver]
-        except:
+        except (OSError, ValueError, EOFError):
             return False, None
 
     def __init__(
@@ -43,7 +43,7 @@ class HeartbeatReceiver:
         self.connection = connection
         self.state = state
         self.local_logger = local_logger
-        self.missed_count
+        self.missed_count = 0
         # Do any intializiation here
 
     def run(
@@ -69,8 +69,8 @@ class HeartbeatReceiver:
             # Report state every second
             self.local_logger.info(f"Current state: {self.state}", True)
 
-        except:
-            self.local_logger.error(f"Error receiving heartbeat", True)
+        except (OSError, ValueError, EOFError) as e:
+            self.local_logger.error(f"Error receiving heartbeat: {e}", True)
 
 
 # =================================================================================================

@@ -30,7 +30,7 @@ class HeartbeatSender:
                 connection,
             )
             return [True, sender]
-        except Exception as e:
+        except:
             return [False, None]
 
     def __init__(
@@ -45,7 +45,7 @@ class HeartbeatSender:
 
     def run(
         self,
-        logger: logger.Logger,
+        local_logger: logger.Logger,
     ) -> None:
         """
         Attempt to send a heartbeat message.
@@ -54,9 +54,9 @@ class HeartbeatSender:
             self.connection.mav.heartbeat_send(
                 mavutil.mavlink.MAV_TYPE_GCS, mavutil.mavlink.MAV_AUTOPILOT_INVALID, 0, 0, 0
             )
-            logger.info("Heartbeat Sent")
-        except Exception as e:
-            logger.error(e)
+            local_logger.info("Heartbeat Sent")
+        except:
+            local_logger.error("Heartbeat Sender Error")
 
 
 # =================================================================================================

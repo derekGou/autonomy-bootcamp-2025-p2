@@ -6,9 +6,8 @@ import math
 
 from pymavlink import mavutil
 
-from ..common.modules.logger import logger
-from ..telemetry import telemetry
 from utilities.workers import queue_proxy_wrapper
+from ..common.modules.logger import logger
 
 
 class Position:
@@ -50,7 +49,7 @@ class Command:  # pylint: disable=too-many-instance-attributes
                 cls.__private_key, connection, target, local_logger, data_queue, response_queue
             )
             return [True, command]
-        except Exception as e:
+        except:
             return [False, None]
 
     def __init__(
@@ -103,7 +102,7 @@ class Command:  # pylint: disable=too-many-instance-attributes
         if abs(telemetry_data.z - self.target.z) > 0.5:
             self.response_queue.queue.put(f"CHANGE_ALTITUDE: {self.target.z-telemetry_data.z}")
         else:
-            self.response_queue.queue.put(f"CHANGE_ALTITUDE: 0")
+            self.response_queue.queue.put("CHANGE_ALTITUDE: 0")
 
         # Adjust direction (yaw) using MAV_CMD_CONDITION_YAW (115). Must use relative angle to current state
         # String to return to main: "CHANGING_YAW: {degree you changed it by in range [-180, 180]}"
@@ -121,7 +120,7 @@ class Command:  # pylint: disable=too-many-instance-attributes
         if abs(telemetry_data.yaw - angle) > (math.pi / 36):
             self.response_queue.queue.put(f"CHANGING_YAW: {(angle-telemetry_data.yaw)/math.pi*180}")
         else:
-            self.response_queue.queue.put(f"CHANGING_YAW: 0")
+            self.response_queue.queue.put("CHANGING_YAW: 0")
 
         if abs(telemetry_data.z - self.target.z) > 0.5 or abs(telemetry_data.yaw - angle) > (
             math.pi / 36

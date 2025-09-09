@@ -137,7 +137,7 @@ def main() -> int:
     result, telemetry_props = worker_manager.WorkerProperties.create(
         count=NUM_TELEMETRY_WORKERS,
         target=telemetry_worker.telemetry_worker,
-        work_arguments=(connection, controller, telemetry_queue, TELEMETRY_PERIOD),
+        work_arguments=(connection, controller, telemetry_queue),
         input_queues=[],
         output_queues=[telemetry_queue],
         controller=controller,

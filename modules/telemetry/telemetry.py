@@ -82,7 +82,7 @@ class Telemetry:
         try:
             telemetry = cls(cls.__private_key, connection, local_logger)
             return [True, telemetry]
-        except Exception as e:
+        except:
             return [False, None]
 
     def __init__(
@@ -96,6 +96,8 @@ class Telemetry:
         # Do any intializiation here
         self.local_logger = local_logger
         self.connection = connection
+        self.last_attitude
+        self.last_position
 
     def run(
         self,

@@ -58,8 +58,8 @@ def heartbeat_sender_worker(
     while not controller.is_exit_requested():
         try:
             sender.run(logger=local_logger)
-        except Exception as e:
-            local_logger.error(f"Error in heartbeat sender worker: {e}", True)
+        except:
+            local_logger.error(f"Error in heartbeat sender worker", True)
         time.sleep(period)
 
 

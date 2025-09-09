@@ -5,6 +5,7 @@ Test the heartbeat sender worker with a mocked drone.
 import multiprocessing as mp
 import subprocess
 import threading
+import time
 
 from pymavlink import mavutil
 
@@ -38,19 +39,22 @@ def start_drone() -> None:
     """
     Start the mocked drone.
     """
-    subprocess.run(["python", "-m", MOCK_DRONE_MODULE], shell=True, check=False)
+    subprocess.run(["python3", "-m", MOCK_DRONE_MODULE], shell=True, check=False)
 
 
 # =================================================================================================
 #                            ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
 # =================================================================================================
+stop_event = threading.Event()
+
+
 def stop(
-    args,  # Add any necessary arguments
+    controller,  # Add any necessary arguments
 ) -> None:
     """
     Stop the workers.
     """
-    pass  # Add logic to stop your worker
+    controller.request_exit()
 
 
 # =================================================================================================
@@ -93,13 +97,11 @@ def main() -> int:
     # =============================================================================================
     # Mock starting a worker, since cannot actually start a new process
     # Create a worker controller for your worker
-
+    controller = worker_controller.WorkerController()
     # Just set a timer to stop the worker after a while, since the worker infinite loops
-    threading.Timer(HEARTBEAT_PERIOD * NUM_TRIALS, stop, (args,)).start()
+    threading.Timer(HEARTBEAT_PERIOD * NUM_TRIALS, lambda: stop(controller)).start()
 
-    heartbeat_sender_worker.heartbeat_sender_worker(
-        # Place your own arguments here
-    )
+    heartbeat_sender_worker.heartbeat_sender_worker(connection, controller, HEARTBEAT_PERIOD)
     # =============================================================================================
     #                          ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑
     # =============================================================================================

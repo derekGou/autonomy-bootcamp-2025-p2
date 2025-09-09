@@ -4,6 +4,7 @@ Heartbeat worker that sends heartbeats periodically.
 
 import os
 import pathlib
+import time
 
 from pymavlink import mavutil
 
@@ -18,13 +19,15 @@ from ..common.modules.logger import logger
 # =================================================================================================
 def heartbeat_receiver_worker(
     connection: mavutil.mavfile,
-    args,  # Place your own arguments here
-    # Add other necessary worker arguments here
+    controller: worker_controller.WorkerController,
+    queue: queue_proxy_wrapper.QueueProxyWrapper,
+    period: int,
 ) -> None:
     """
     Worker process.
 
-    args... describe what the arguments are
+    connection: MAVUtil connection object that is used to send out heartbeats
+    period: time period between heartbeats
     """
     # =============================================================================================
     #                          ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑
@@ -47,8 +50,20 @@ def heartbeat_receiver_worker(
     #                          ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
     # =============================================================================================
     # Instantiate class object (heartbeat_receiver.HeartbeatReceiver)
-
+    result, receiver = heartbeat_receiver.HeartbeatReceiver.create(
+        connection, local_logger=local_logger
+    )
+    if not result:
+        local_logger.error("Failed to create HeartbeatReceiver", True)
+        return
     # Main loop: do work.
+
+    while not controller.is_exit_requested():
+        receiver.run()
+        current_state = receiver.state
+        queue.queue.put(current_state)
+        local_logger.info(f"Current state: {current_state}", True)
+        time.sleep(period)
 
 
 # =================================================================================================

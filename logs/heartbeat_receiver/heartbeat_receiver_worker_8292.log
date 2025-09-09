@@ -1,0 +1,47 @@
+11:00:44: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 47] Logger initialized
+11:00:44: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 69] Current state: Connected
+11:00:44: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 63] Current state: Connected
+11:00:45: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 69] Current state: Connected
+11:00:45: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 63] Current state: Connected
+11:00:46: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 69] Current state: Connected
+11:00:46: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 63] Current state: Connected
+11:00:47: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 69] Current state: Connected
+11:00:47: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 63] Current state: Connected
+11:00:48: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 69] Current state: Connected
+11:00:48: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 63] Current state: Connected
+11:00:49: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 69] Current state: Connected
+11:00:49: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 63] Current state: Connected
+11:00:50: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 69] Current state: Connected
+11:00:50: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 63] Current state: Connected
+11:00:51: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 69] Current state: Connected
+11:00:51: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 63] Current state: Connected
+11:00:52: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 69] Current state: Connected
+11:00:52: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 63] Current state: Connected
+11:00:53: [WARNING] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 66] Lost connection to drone!
+11:00:53: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 69] Current state: False
+11:00:53: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 63] Current state: False
+11:00:54: [WARNING] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 66] Lost connection to drone!
+11:00:54: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 69] Current state: False
+11:00:54: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 63] Current state: False
+11:00:55: [WARNING] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 66] Lost connection to drone!
+11:00:55: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 69] Current state: False
+11:00:55: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 63] Current state: False
+11:00:56: [WARNING] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 66] Lost connection to drone!
+11:00:56: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 69] Current state: False
+11:00:56: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 63] Current state: False
+11:00:57: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 69] Current state: Connected
+11:00:57: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 63] Current state: Connected
+11:00:58: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 69] Current state: Connected
+11:00:58: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 63] Current state: Connected
+11:00:59: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 69] Current state: Connected
+11:00:59: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 63] Current state: Connected
+11:01:00: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 69] Current state: Connected
+11:01:00: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 63] Current state: Connected
+11:01:01: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 69] Current state: Connected
+11:01:01: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 63] Current state: Connected
+11:01:02: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 69] Current state: Connected
+11:01:02: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 63] Current state: Connected
+11:01:03: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 69] Current state: Connected
+11:01:03: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 63] Current state: Connected
+11:01:04: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 69] Current state: Connected
+11:01:04: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 63] Current state: Connected

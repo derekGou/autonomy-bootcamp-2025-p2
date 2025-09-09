@@ -18,13 +18,17 @@ from ..common.modules.logger import logger
 # =================================================================================================
 def telemetry_worker(
     connection: mavutil.mavfile,
-    args,  # Place your own arguments here
-    # Add other necessary worker arguments here
+    controller: worker_controller.WorkerController,
+    queue: queue_proxy_wrapper.QueueProxyWrapper,
+    period: int,
 ) -> None:
     """
     Worker process.
 
-    args... describe what the arguments are
+    connection: mavutil connection for sending messages
+    controller: controls start/stop of worker
+    queue: message/information queue for communication
+    period: telemetry timeout period
     """
     # =============================================================================================
     #                          ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑
@@ -47,8 +51,28 @@ def telemetry_worker(
     #                          ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
     # =============================================================================================
     # Instantiate class object (telemetry.Telemetry)
-
+    result, telemetryObject = telemetry.Telemetry.create(connection, local_logger)
+    if not result:
+        local_logger.error("Failed to create telemetry object", True)
+        return
     # Main loop: do work.
+    local_logger.info("Telemetry worker started", True)
+
+    while not controller.is_exit_requested():
+        try:
+            while True:
+                telemetry_data = telemetryObject.run()
+                if telemetry_data:
+                    queue.queue.put(telemetry_data)
+                    local_logger.info(f"Telemetry data queued: {telemetry_data}", False)
+                else:
+                    break  # no more messages right now
+
+        except Exception as e:
+            local_logger.error(f"Telemetry worker error: {e}", True)
+            continue
+
+    local_logger.info("Telemetry worker stopped", True)
 
 
 # =================================================================================================

@@ -4,6 +4,7 @@ Command worker to make decisions based on Telemetry Data.
 
 import os
 import pathlib
+import time
 
 from pymavlink import mavutil
 
@@ -19,13 +20,21 @@ from ..common.modules.logger import logger
 def command_worker(
     connection: mavutil.mavfile,
     target: command.Position,
-    args,  # Place your own arguments here
+    data_queue: queue_proxy_wrapper.QueueProxyWrapper,
+    response_queue: queue_proxy_wrapper.QueueProxyWrapper,
+    controller: worker_controller.WorkerController,
+    period: int,
     # Add other necessary worker arguments here
 ) -> None:
     """
     Worker process.
 
-    args... describe what the arguments are
+    connection: mavlink connection for sending messages
+    target: target position
+    data_queue: queue to read test telemetry data
+    response_queue: queue to pass results to
+    controller: worker controller to control running/stopping of command worker
+    period: period of time between messages
     """
     # =============================================================================================
     #                          ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑
@@ -48,8 +57,23 @@ def command_worker(
     #                          ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
     # =============================================================================================
     # Instantiate class object (command.Command)
-
+    result, commandWorker = command.Command.create(
+        connection,
+        target,
+        local_logger=local_logger,
+        data_queue=data_queue,
+        response_queue=response_queue,
+    )
+    if not result:
+        local_logger.error("Failed to create CommandWorker", True)
+        return
     # Main loop: do work.
+    while not controller.is_exit_requested():
+        try:
+            commandWorker.run()
+        except Exception as e:
+            local_logger.error(f"Error in command worker: {e}", True)
+        time.sleep(period)
 
 
 # =================================================================================================

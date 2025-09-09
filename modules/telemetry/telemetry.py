@@ -2,8 +2,6 @@
 Telemetry gathering logic.
 """
 
-import time
-
 from pymavlink import mavutil
 
 from ..common.modules.logger import logger
@@ -76,37 +74,71 @@ class Telemetry:
     def create(
         cls,
         connection: mavutil.mavfile,
-        args,  # Put your own arguments here
         local_logger: logger.Logger,
     ):
         """
         Falliable create (instantiation) method to create a Telemetry object.
         """
-        pass  # Create a Telemetry object
+        try:
+            telemetry = cls(cls.__private_key, connection, local_logger)
+            return [True, telemetry]
+        except Exception as e:
+            return [False, None]
 
     def __init__(
         self,
         key: object,
         connection: mavutil.mavfile,
-        args,  # Put your own arguments here
         local_logger: logger.Logger,
     ) -> None:
         assert key is Telemetry.__private_key, "Use create() method"
 
         # Do any intializiation here
+        self.local_logger = local_logger
+        self.connection = connection
 
     def run(
         self,
-        args,  # Put your own arguments here
     ):
         """
         Receive LOCAL_POSITION_NED and ATTITUDE messages from the drone,
         combining them together to form a single TelemetryData object.
         """
-        # Read MAVLink message LOCAL_POSITION_NED (32)
-        # Read MAVLink message ATTITUDE (30)
-        # Return the most recent of both, and use the most recent message's timestamp
-        pass
+        msg = self.connection.recv_match(blocking=False)
+        if msg is None:
+            return None
+
+        if msg.get_type() == "LOCAL_POSITION_NED":
+            self.last_position = msg
+        elif msg.get_type() == "ATTITUDE":
+            self.last_attitude = msg
+
+        # Only return if we have both types
+        if hasattr(self, "last_position") and hasattr(self, "last_attitude"):
+            position = self.last_position
+            attitude = self.last_attitude
+
+            telemetry_data = TelemetryData(
+                time_since_boot=int(
+                    max(getattr(position, "time_boot_ms", 0), getattr(attitude, "time_boot_ms", 0))
+                    / 1000
+                ),
+                x=position.x,
+                y=position.y,
+                z=position.z,
+                x_velocity=position.vx,
+                y_velocity=position.vy,
+                z_velocity=position.vz,
+                roll=attitude.roll,
+                pitch=attitude.pitch,
+                yaw=attitude.yaw,
+                roll_speed=attitude.rollspeed,
+                pitch_speed=attitude.pitchspeed,
+                yaw_speed=attitude.yawspeed,
+            )
+            return telemetry_data
+
+        return None
 
 
 # =================================================================================================

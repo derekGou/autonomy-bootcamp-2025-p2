@@ -1,0 +1,13 @@
+10:55:01: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_sender_worker.py | heartbeat_sender_worker | 46] Logger initialized
+10:55:01: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_sender_worker.py | heartbeat_sender_worker | 56] HeartbeatSender Initialized
+10:55:01: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_sender.py | run | 52] Heartbeat Sent
+10:55:02: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_sender.py | run | 52] Heartbeat Sent
+10:55:03: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_sender.py | run | 52] Heartbeat Sent
+10:55:04: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_sender.py | run | 52] Heartbeat Sent
+10:55:05: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_sender.py | run | 52] Heartbeat Sent
+10:55:06: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_sender.py | run | 52] Heartbeat Sent
+10:55:07: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_sender.py | run | 52] Heartbeat Sent
+10:55:08: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_sender.py | run | 52] Heartbeat Sent
+10:55:09: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_sender.py | run | 52] Heartbeat Sent
+10:55:10: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_sender.py | run | 52] Heartbeat Sent
+10:55:11: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_sender.py | run | 52] Heartbeat Sent

@@ -133,7 +133,7 @@ def main() -> int:
     threading.Thread(target=read_queue, args=(state_queue, main_logger)).start()
 
     heartbeat_receiver_worker.heartbeat_receiver_worker(
-        connection, controller=controller, queue=state_queue, period=HEARTBEAT_PERIOD
+        connection, controller, state_queue, HEARTBEAT_PERIOD
     )
     # =============================================================================================
     #                          ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑

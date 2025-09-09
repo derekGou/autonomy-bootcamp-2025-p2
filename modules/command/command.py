@@ -41,7 +41,7 @@ class Command:  # pylint: disable=too-many-instance-attributes
         local_logger: logger.Logger,
         data_queue: queue_proxy_wrapper.QueueProxyWrapper,
         response_queue: queue_proxy_wrapper.QueueProxyWrapper,
-    ):
+    ) -> "tuple[True, Command] | tuple[False, None]":
         """
         Falliable create (instantiation) method to create a Command object.
         """

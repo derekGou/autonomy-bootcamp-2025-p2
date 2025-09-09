@@ -10,6 +10,7 @@ from ..common.modules.logger import logger
 from ..telemetry import telemetry
 from utilities.workers import queue_proxy_wrapper
 
+
 class Position:
     """
     3D vector struct.

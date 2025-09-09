@@ -59,7 +59,7 @@ def stop(
 
 
 def read_queue(
-    queue:queue_proxy_wrapper.QueueProxyWrapper,  # Add any necessary arguments
+    queue: queue_proxy_wrapper.QueueProxyWrapper,  # Add any necessary arguments
     main_logger: logger.Logger,
 ) -> None:
     """

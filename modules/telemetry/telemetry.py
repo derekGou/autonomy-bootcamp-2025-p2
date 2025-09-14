@@ -119,26 +119,28 @@ class Telemetry:
         if hasattr(self, "last_position") and hasattr(self, "last_attitude"):
             position = self.last_position
             attitude = self.last_attitude
-
-            telemetry_data = TelemetryData(
-                time_since_boot=int(
-                    max(getattr(position, "time_boot_ms", 0), getattr(attitude, "time_boot_ms", 0))
-                    / 1000
-                ),
-                x=position.x,
-                y=position.y,
-                z=position.z,
-                x_velocity=position.vx,
-                y_velocity=position.vy,
-                z_velocity=position.vz,
-                roll=attitude.roll,
-                pitch=attitude.pitch,
-                yaw=attitude.yaw,
-                roll_speed=attitude.rollspeed,
-                pitch_speed=attitude.pitchspeed,
-                yaw_speed=attitude.yawspeed,
-            )
-            return telemetry_data
+            if position is not None and attitude is not None:
+                telemetry_data = TelemetryData(
+                    time_since_boot=int(
+                        max(
+                            getattr(position, "time_boot_ms", 0),
+                            getattr(attitude, "time_boot_ms", 0),
+                        )
+                    ),
+                    x=position.x,
+                    y=position.y,
+                    z=position.z,
+                    x_velocity=position.vx,
+                    y_velocity=position.vy,
+                    z_velocity=position.vz,
+                    roll=attitude.roll,
+                    pitch=attitude.pitch,
+                    yaw=attitude.yaw,
+                    roll_speed=attitude.rollspeed,
+                    pitch_speed=attitude.pitchspeed,
+                    yaw_speed=attitude.yawspeed,
+                )
+                return telemetry_data
 
         return None
 

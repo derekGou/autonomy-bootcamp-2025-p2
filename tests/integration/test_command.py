@@ -7,6 +7,7 @@ import multiprocessing as mp
 import subprocess
 import threading
 import time
+import queue as pyqueue
 
 from pymavlink import mavutil
 
@@ -69,8 +70,14 @@ def read_queue(
     """
     Read and print the output queue.
     """
-    res = queue.queue.get(timeout=TELEMETRY_PERIOD)
-    main_logger.info(res)
+    while True:
+        try:
+            output = queue.queue.get(timeout=0.1)
+            main_logger.info(output)
+        except pyqueue.Empty:
+            continue  # no message right now, keep waiting
+        except (OSError, ValueError, EOFError):
+            break
 
 
 def put_queue(

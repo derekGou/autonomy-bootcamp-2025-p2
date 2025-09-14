@@ -100,7 +100,7 @@ def main() -> int:
     result, hb_send_props = worker_manager.WorkerProperties.create(
         count=NUM_HEARTBEAT_SENDERS,
         target=heartbeat_sender_worker.heartbeat_sender_worker,
-        work_arguments=(connection, controller, HEARTBEAT_PERIOD),
+        work_arguments=(connection, HEARTBEAT_PERIOD),
         input_queues=[],
         output_queues=[heartbeat_queue],
         controller=controller,
@@ -117,8 +117,6 @@ def main() -> int:
         target=heartbeat_receiver_worker.heartbeat_receiver_worker,
         work_arguments=(
             connection,
-            controller,
-            heartbeat_queue,
             HEARTBEAT_PERIOD,
         ),
         input_queues=[heartbeat_queue],
@@ -137,7 +135,7 @@ def main() -> int:
     result, telemetry_props = worker_manager.WorkerProperties.create(
         count=NUM_TELEMETRY_WORKERS,
         target=telemetry_worker.telemetry_worker,
-        work_arguments=(connection, controller, telemetry_queue),
+        work_arguments=(connection),
         input_queues=[],
         output_queues=[telemetry_queue],
         controller=controller,
@@ -157,9 +155,6 @@ def main() -> int:
         work_arguments=(
             connection,
             TARGET,
-            telemetry_queue,
-            command_queue,
-            controller,
             TELEMETRY_PERIOD,
         ),
         input_queues=[telemetry_queue],
@@ -196,11 +191,7 @@ def main() -> int:
 
     # Fill and drain queues from END TO START
     for q in (command_queue, telemetry_queue, heartbeat_queue):
-        while not q.queue.empty():
-            try:
-                _ = q.queue.get_nowait()
-            except queue.Empty:
-                break
+        q.fill_and_drain_queue()
     main_logger.info("Queues cleared")
 
     # Clean up worker processes

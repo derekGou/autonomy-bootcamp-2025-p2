@@ -3,6 +3,7 @@ Decision-making logic.
 """
 
 import math
+import time
 
 from pymavlink import mavutil
 
@@ -67,6 +68,8 @@ class Command:  # pylint: disable=too-many-instance-attributes
         self.local_logger = local_logger
         self.data_queue = data_queue
         self.response_queue = response_queue
+        self.time = time.time()
+        self.start = None
         # Do any intializiation here
 
     def run(
@@ -78,18 +81,16 @@ class Command:  # pylint: disable=too-many-instance-attributes
         # Log average velocity for this trip so far
         telemetry_data = self.data_queue.queue.get()
 
-        self.local_logger.info(telemetry_data)
-        self.local_logger.info(self.target.z)
+        if not self.start:
+            self.start = Position(telemetry_data.x, telemetry_data.y, telemetry_data.z)
 
-        if telemetry_data.time_since_boot and telemetry_data.time_since_boot > 0:
-            avg_v = (
-                math.sqrt(
-                    telemetry_data.x_velocity**2
-                    + telemetry_data.y_velocity**2
-                    + telemetry_data.z_velocity**2
-                )
-                / telemetry_data.time_since_boot
-            )
+        curr_time = time.time() - self.time
+        if curr_time > 0:
+            avg_v = [
+                (telemetry_data.x_velocity - self.start.x) / float(curr_time),
+                (telemetry_data.y_velocity - self.start.y) / float(curr_time),
+                (telemetry_data.z_velocity - self.start.z) / float(curr_time),
+            ]
         else:
             avg_v = 0
 
@@ -101,8 +102,6 @@ class Command:  # pylint: disable=too-many-instance-attributes
         # String to return to main: "CHANGE_ALTITUDE: {amount you changed it by, delta height in meters}"
         if abs(telemetry_data.z - self.target.z) > 0.5:
             self.response_queue.queue.put(f"CHANGE_ALTITUDE: {self.target.z-telemetry_data.z}")
-        else:
-            self.response_queue.queue.put("CHANGE_ALTITUDE: 0")
 
         # Adjust direction (yaw) using MAV_CMD_CONDITION_YAW (115). Must use relative angle to current state
         # String to return to main: "CHANGING_YAW: {degree you changed it by in range [-180, 180]}"
@@ -118,9 +117,11 @@ class Command:  # pylint: disable=too-many-instance-attributes
             if delta_y < 0:
                 angle += math.pi
         if abs(telemetry_data.yaw - angle) > (math.pi / 36):
-            self.response_queue.queue.put(f"CHANGING_YAW: {(angle-telemetry_data.yaw)/math.pi*180}")
-        else:
-            self.response_queue.queue.put("CHANGING_YAW: 0")
+            yaw_change = (angle - telemetry_data.yaw) / math.pi * 180
+            yaw_change %= 360
+            if yaw_change > 180:
+                yaw_change -= 360
+            self.response_queue.queue.put(f"CHANGING_YAW: {yaw_change}")
 
         if abs(telemetry_data.z - self.target.z) > 0.5 or abs(telemetry_data.yaw - angle) > (
             math.pi / 36

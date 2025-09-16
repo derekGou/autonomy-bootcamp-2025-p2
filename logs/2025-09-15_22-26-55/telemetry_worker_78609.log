@@ -1,6 +1,7 @@
-20:31:35: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/common/modules/logger/logger_main_setup.py | setup_main_logger | 62] main logger initialized
-20:31:35: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | main | 112] Connected!
-20:31:35: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:26:55: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 49] Logger initialized
+22:26:55: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 60] Telemetry worker started
+22:26:55: [ERROR] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 70] Missing Telemetry data
+22:26:56: [INFO] Telemetry data queued: {
             time_since_boot: 0,
             x: 0.0,
             y: 0.0,
@@ -15,7 +16,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:35: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:26:57: [INFO] Telemetry data queued: {
             time_since_boot: 333,
             x: 0.0,
             y: 0.0,
@@ -30,7 +31,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:35: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:26:58: [INFO] Telemetry data queued: {
             time_since_boot: 500,
             x: 0.5,
             y: 0.0,
@@ -45,7 +46,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:35: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:26:59: [INFO] Telemetry data queued: {
             time_since_boot: 666,
             x: 0.5,
             y: 0.0,
@@ -60,7 +61,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:36: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:00: [INFO] Telemetry data queued: {
             time_since_boot: 1000,
             x: 0.5,
             y: 0.0,
@@ -75,7 +76,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:36: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:01: [INFO] Telemetry data queued: {
             time_since_boot: 1000,
             x: 1.0,
             y: 0.0,
@@ -90,7 +91,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:36: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:02: [INFO] Telemetry data queued: {
             time_since_boot: 1333,
             x: 1.0,
             y: 0.0,
@@ -105,7 +106,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:36: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:03: [INFO] Telemetry data queued: {
             time_since_boot: 1500,
             x: 1.5,
             y: 0.0,
@@ -120,7 +121,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:36: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:04: [INFO] Telemetry data queued: {
             time_since_boot: 1666,
             x: 1.5,
             y: 0.0,
@@ -135,7 +136,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:37: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:05: [INFO] Telemetry data queued: {
             time_since_boot: 2000,
             x: 1.5,
             y: 0.0,
@@ -150,7 +151,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:37: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:06: [INFO] Telemetry data queued: {
             time_since_boot: 2000,
             x: 2.0,
             y: 0.0,
@@ -165,7 +166,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:37: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:07: [INFO] Telemetry data queued: {
             time_since_boot: 2333,
             x: 2.0,
             y: 0.0,
@@ -180,7 +181,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:37: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:08: [INFO] Telemetry data queued: {
             time_since_boot: 2500,
             x: 2.5,
             y: 0.0,
@@ -195,7 +196,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:37: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:09: [INFO] Telemetry data queued: {
             time_since_boot: 2666,
             x: 2.5,
             y: 0.0,
@@ -210,7 +211,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:38: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:10: [INFO] Telemetry data queued: {
             time_since_boot: 3000,
             x: 2.5,
             y: 0.0,
@@ -225,7 +226,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:38: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:11: [INFO] Telemetry data queued: {
             time_since_boot: 3000,
             x: 3.0,
             y: 0.0,
@@ -240,7 +241,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:38: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:12: [INFO] Telemetry data queued: {
             time_since_boot: 3333,
             x: 3.0,
             y: 0.0,
@@ -255,7 +256,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:38: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:13: [INFO] Telemetry data queued: {
             time_since_boot: 3500,
             x: 3.5,
             y: 0.0,
@@ -270,7 +271,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:38: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:14: [INFO] Telemetry data queued: {
             time_since_boot: 3666,
             x: 3.5,
             y: 0.0,
@@ -285,7 +286,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:39: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:15: [INFO] Telemetry data queued: {
             time_since_boot: 4000,
             x: 3.5,
             y: 0.0,
@@ -300,7 +301,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:39: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:16: [INFO] Telemetry data queued: {
             time_since_boot: 4000,
             x: 4.0,
             y: 0.0,
@@ -315,7 +316,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:39: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:17: [INFO] Telemetry data queued: {
             time_since_boot: 4333,
             x: 4.0,
             y: 0.0,
@@ -330,7 +331,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:39: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:18: [INFO] Telemetry data queued: {
             time_since_boot: 4500,
             x: 4.5,
             y: 0.0,
@@ -345,7 +346,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:39: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:19: [INFO] Telemetry data queued: {
             time_since_boot: 4666,
             x: 4.5,
             y: 0.0,
@@ -360,7 +361,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:41: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:20: [INFO] Telemetry data queued: {
             time_since_boot: 4500,
             x: 4.5,
             y: 0.0,
@@ -375,7 +376,7 @@
             pitch_speed: 555.0,
             yaw_speed: 555.0
         }
-20:31:42: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:21: [INFO] Telemetry data queued: {
             time_since_boot: 999,
             x: 3.0,
             y: 2.0,
@@ -390,7 +391,7 @@
             pitch_speed: 555.0,
             yaw_speed: 555.0
         }
-20:31:43: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:22: [INFO] Telemetry data queued: {
             time_since_boot: 111,
             x: 3.0,
             y: 2.0,
@@ -405,7 +406,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:43: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:23: [INFO] Telemetry data queued: {
             time_since_boot: 0,
             x: 0.0,
             y: 0.0,
@@ -420,7 +421,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:43: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:24: [INFO] Telemetry data queued: {
             time_since_boot: 333,
             x: 0.3333333432674408,
             y: 0.0,
@@ -435,7 +436,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:43: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:25: [INFO] Telemetry data queued: {
             time_since_boot: 500,
             x: 0.3333333432674408,
             y: 0.0,
@@ -450,7 +451,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:43: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:26: [INFO] Telemetry data queued: {
             time_since_boot: 666,
             x: 0.6666666865348816,
             y: 0.0,
@@ -465,7 +466,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:44: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:27: [INFO] Telemetry data queued: {
             time_since_boot: 1000,
             x: 0.6666666865348816,
             y: 0.0,
@@ -480,7 +481,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:44: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:28: [INFO] Telemetry data queued: {
             time_since_boot: 1000,
             x: 1.0,
             y: 0.0,
@@ -495,8 +496,8 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:44: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
-            time_since_boot: 1336,
+22:27:29: [INFO] Telemetry data queued: {
+            time_since_boot: 1333,
             x: 1.3333333730697632,
             y: 0.0,
             z: 0.0,
@@ -510,7 +511,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:44: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:30: [INFO] Telemetry data queued: {
             time_since_boot: 1500,
             x: 1.3333333730697632,
             y: 0.0,
@@ -525,7 +526,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:44: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:31: [INFO] Telemetry data queued: {
             time_since_boot: 1666,
             x: 1.6666666269302368,
             y: 0.0,
@@ -540,7 +541,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:45: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:32: [INFO] Telemetry data queued: {
             time_since_boot: 2000,
             x: 1.6666666269302368,
             y: 0.0,
@@ -555,7 +556,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:45: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:33: [INFO] Telemetry data queued: {
             time_since_boot: 2000,
             x: 2.0,
             y: 0.0,
@@ -570,7 +571,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:45: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:34: [INFO] Telemetry data queued: {
             time_since_boot: 2333,
             x: 2.3333332538604736,
             y: 0.0,
@@ -585,7 +586,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:45: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:35: [INFO] Telemetry data queued: {
             time_since_boot: 2500,
             x: 2.3333332538604736,
             y: 0.0,
@@ -600,7 +601,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:45: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:36: [INFO] Telemetry data queued: {
             time_since_boot: 2666,
             x: 2.6666667461395264,
             y: 0.0,
@@ -615,7 +616,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:46: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:37: [INFO] Telemetry data queued: {
             time_since_boot: 3000,
             x: 2.6666667461395264,
             y: 0.0,
@@ -630,7 +631,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:46: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:38: [INFO] Telemetry data queued: {
             time_since_boot: 3000,
             x: 3.0,
             y: 0.0,
@@ -645,7 +646,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:46: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:39: [INFO] Telemetry data queued: {
             time_since_boot: 3333,
             x: 3.3333332538604736,
             y: 0.0,
@@ -660,7 +661,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:46: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:40: [INFO] Telemetry data queued: {
             time_since_boot: 3500,
             x: 3.3333332538604736,
             y: 0.0,
@@ -675,7 +676,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:46: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:41: [INFO] Telemetry data queued: {
             time_since_boot: 3666,
             x: 3.6666667461395264,
             y: 0.0,
@@ -690,7 +691,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:47: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:42: [INFO] Telemetry data queued: {
             time_since_boot: 4000,
             x: 3.6666667461395264,
             y: 0.0,
@@ -705,7 +706,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:47: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:43: [INFO] Telemetry data queued: {
             time_since_boot: 4000,
             x: 4.0,
             y: 0.0,
@@ -720,7 +721,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:47: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:44: [INFO] Telemetry data queued: {
             time_since_boot: 4333,
             x: 4.333333492279053,
             y: 0.0,
@@ -735,7 +736,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:47: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:45: [INFO] Telemetry data queued: {
             time_since_boot: 4500,
             x: 4.333333492279053,
             y: 0.0,
@@ -750,7 +751,7 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
-20:31:47: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_telemetry.py | read_queue | 67] {
+22:27:46: [INFO] Telemetry data queued: {
             time_since_boot: 4666,
             x: 4.666666507720947,
             y: 0.0,
@@ -765,3 +766,26 @@
             pitch_speed: 0.0,
             yaw_speed: 3.1415927410125732
         }
+22:27:47: [ERROR] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 70] Missing Telemetry data
+22:27:48: [ERROR] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 70] Missing Telemetry data
+22:27:49: [ERROR] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 70] Missing Telemetry data
+22:27:50: [ERROR] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 70] Missing Telemetry data
+22:27:51: [ERROR] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 70] Missing Telemetry data
+22:27:52: [ERROR] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 70] Missing Telemetry data
+22:27:53: [ERROR] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 70] Missing Telemetry data
+22:27:54: [ERROR] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 70] Missing Telemetry data
+22:27:55: [ERROR] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 70] Missing Telemetry data
+22:27:56: [ERROR] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 70] Missing Telemetry data
+22:27:57: [ERROR] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 70] Missing Telemetry data
+22:27:58: [ERROR] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 70] Missing Telemetry data
+22:27:59: [ERROR] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 70] Missing Telemetry data
+22:28:00: [ERROR] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 70] Missing Telemetry data
+22:28:01: [ERROR] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 70] Missing Telemetry data
+22:28:02: [ERROR] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 70] Missing Telemetry data
+22:28:03: [ERROR] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 70] Missing Telemetry data
+22:28:04: [ERROR] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 70] Missing Telemetry data
+22:28:05: [ERROR] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 70] Missing Telemetry data
+22:28:06: [ERROR] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 70] Missing Telemetry data
+22:28:07: [ERROR] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 70] Missing Telemetry data
+22:28:08: [ERROR] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 74] Telemetry worker error: [Errno 54] Connection reset by peer
+22:28:08: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 77] Telemetry worker stopped

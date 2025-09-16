@@ -1,3 +1,0 @@
-20:30:25: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/common/modules/logger/logger_main_setup.py | setup_main_logger | 62] main logger initialized
-20:30:25: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | main | 111] Connected!
-20:30:26: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 69] Connected

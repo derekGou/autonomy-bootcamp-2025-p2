@@ -63,7 +63,7 @@ class HeartbeatReceiver:
             else:
                 self.missed_count += 1
                 if self.missed_count >= 5:
-                    self.state = False
+                    self.state = "Disconnected"
                     self.local_logger.warning("Lost connection to drone!", True)
 
             # Report state every second

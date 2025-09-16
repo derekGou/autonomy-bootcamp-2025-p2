@@ -61,8 +61,6 @@ def command_worker(
         connection,
         target,
         local_logger=local_logger,
-        data_queue=data_queue,
-        response_queue=response_queue,
     )
     if not result:
         local_logger.error("Failed to create CommandWorker", True)
@@ -70,7 +68,10 @@ def command_worker(
     # Main loop: do work.
     while not controller.is_exit_requested():
         try:
-            command_worker_object.run()
+            telemetry_data = data_queue.queue.get()
+            queues = command_worker_object.run(telemetry_data)
+            for q in queues:
+                response_queue.queue.put(q)
         except (OSError, ValueError, EOFError) as e:
             local_logger.error(f"Error in command worker: {e}", True)
         time.sleep(period)

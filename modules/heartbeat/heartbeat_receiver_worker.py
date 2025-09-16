@@ -22,6 +22,7 @@ def heartbeat_receiver_worker(
     controller: worker_controller.WorkerController,
     queue: queue_proxy_wrapper.QueueProxyWrapper,
     period: int,
+    main_logger: logger.Logger
 ) -> None:
     """
     Worker process.
@@ -63,6 +64,7 @@ def heartbeat_receiver_worker(
         current_state = receiver.state
         queue.queue.put(current_state)
         local_logger.info(f"Current state: {current_state}", True)
+        main_logger.info(f"Current state: {current_state}", True)
         time.sleep(period)
 
 

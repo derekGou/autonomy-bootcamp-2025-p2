@@ -1,0 +1,30 @@
+08:59:47: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/common/modules/logger/logger_main_setup.py | setup_main_logger | 62] main logger initialized
+08:59:47: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | main | 135] Connected!
+08:59:47: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGE_ALTITUDE: 1
+08:59:47: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: 63.434948822922024
+08:59:48: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGE_ALTITUDE: -1
+08:59:48: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: 63.434948822922024
+08:59:51: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: 63.434948822922024
+08:59:51: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: 90.0
+08:59:52: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: -63.434948822922024
+08:59:52: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: -135.0
+08:59:53: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: -116.56505117707798
+08:59:53: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: -90.0
+08:59:54: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: 26.565051177077994
+08:59:54: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: 45.0
+08:59:55: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: 90.0
+08:59:55: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: -135.0
+08:59:56: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: 90.0
+08:59:56: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: 135.0
+08:59:57: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: -26.565051177077976
+08:59:57: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: -45.0
+08:59:58: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: -90.0
+08:59:59: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: 135.0
+08:59:59: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: -90.0
+09:00:00: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: -135.0
+09:00:00: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: -63.434948822922024
+09:00:01: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: 90.0
+09:00:01: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: 63.43494882292201
+09:00:02: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: 135.0
+09:00:02: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: 116.56505117707798
+09:00:03: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: -90.0

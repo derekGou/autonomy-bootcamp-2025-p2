@@ -3,6 +3,7 @@ Telemetry gathering logic.
 """
 
 from pymavlink import mavutil
+import time
 
 from ..common.modules.logger import logger
 
@@ -98,6 +99,7 @@ class Telemetry:
         self.connection = connection
         self.last_attitude = None
         self.last_position = None
+        self.last_time = time.time()
 
     def run(
         self,
@@ -112,11 +114,18 @@ class Telemetry:
 
         if msg.get_type() == "LOCAL_POSITION_NED":
             self.last_position = msg
+            self.last_time = time.time()
         elif msg.get_type() == "ATTITUDE":
             self.last_attitude = msg
+            self.last_time = time.time()
 
         # Only return if we have both types
-        if hasattr(self, "last_position") and hasattr(self, "last_attitude"):
+        if not hasattr(self, "last_position") or not hasattr(self, "last_attitude"):
+            if time.time()-self.last_time>=1:
+                self.last_attitude = None
+                self.last_position = None
+                self.last_time = time.time()
+        else:
             position = self.last_position
             attitude = self.last_attitude
             if position is not None and attitude is not None:

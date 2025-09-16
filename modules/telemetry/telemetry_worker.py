@@ -4,6 +4,7 @@ Telemtry worker that gathers GPS data.
 
 import os
 import pathlib
+import time
 
 from pymavlink import mavutil
 
@@ -20,6 +21,7 @@ def telemetry_worker(
     connection: mavutil.mavfile,
     controller: worker_controller.WorkerController,
     queue: queue_proxy_wrapper.QueueProxyWrapper,
+    period: int
 ) -> None:
     """
     Worker process.
@@ -65,7 +67,8 @@ def telemetry_worker(
                     queue.queue.put(telemetry_data)
                     local_logger.info(f"Telemetry data queued: {telemetry_data}", False)
                 else:
-                    break  # no more messages right now
+                    local_logger.error("Missing Telemetry data", True)
+                time.sleep(period)
 
         except (OSError, ValueError, EOFError) as e:
             local_logger.error(f"Telemetry worker error: {e}", True)

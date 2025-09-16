@@ -39,15 +39,13 @@ class Command:  # pylint: disable=too-many-instance-attributes
         connection: mavutil.mavfile,
         target: Position,
         local_logger: logger.Logger,
-        data_queue: queue_proxy_wrapper.QueueProxyWrapper,
-        response_queue: queue_proxy_wrapper.QueueProxyWrapper,
     ) -> "tuple[True, Command] | tuple[False, None]":
         """
         Falliable create (instantiation) method to create a Command object.
         """
         try:
             command = cls(
-                cls.__private_key, connection, target, local_logger, data_queue, response_queue
+                cls.__private_key, connection, target, local_logger
             )
             return [True, command]
         except (OSError, ValueError, EOFError):
@@ -59,27 +57,24 @@ class Command:  # pylint: disable=too-many-instance-attributes
         connection: mavutil.mavfile,
         target: Position,
         local_logger: logger.Logger,
-        data_queue: queue_proxy_wrapper.QueueProxyWrapper,
-        response_queue: queue_proxy_wrapper.QueueProxyWrapper,
     ) -> None:
         assert key is Command.__private_key, "Use create() method"
         self.connection = connection
         self.target = target
         self.local_logger = local_logger
-        self.data_queue = data_queue
-        self.response_queue = response_queue
         self.time = time.time()
         self.start = None
         # Do any intializiation here
 
     def run(
         self,
+        data
     ) -> None:
         """
         Make a decision based on received telemetry data.
         """
         # Log average velocity for this trip so far
-        telemetry_data = self.data_queue.queue.get()
+        telemetry_data = data
 
         if not self.start:
             self.start = Position(telemetry_data.x, telemetry_data.y, telemetry_data.z)
@@ -87,9 +82,9 @@ class Command:  # pylint: disable=too-many-instance-attributes
         curr_time = time.time() - self.time
         if curr_time > 0:
             avg_v = [
-                (telemetry_data.x_velocity - self.start.x) / float(curr_time),
-                (telemetry_data.y_velocity - self.start.y) / float(curr_time),
-                (telemetry_data.z_velocity - self.start.z) / float(curr_time),
+                (telemetry_data.x - self.start.x) / float(curr_time),
+                (telemetry_data.y - self.start.y) / float(curr_time),
+                (telemetry_data.z- self.start.z) / float(curr_time),
             ]
         else:
             avg_v = 0
@@ -100,8 +95,10 @@ class Command:  # pylint: disable=too-many-instance-attributes
 
         # Adjust height using the comand MAV_CMD_CONDITION_CHANGE_ALT (113)
         # String to return to main: "CHANGE_ALTITUDE: {amount you changed it by, delta height in meters}"
+        queued = []
+        
         if abs(telemetry_data.z - self.target.z) > 0.5:
-            self.response_queue.queue.put(f"CHANGE_ALTITUDE: {self.target.z-telemetry_data.z}")
+            queued.append(f"CHANGE_ALTITUDE: {self.target.z-telemetry_data.z}")
 
         # Adjust direction (yaw) using MAV_CMD_CONDITION_YAW (115). Must use relative angle to current state
         # String to return to main: "CHANGING_YAW: {degree you changed it by in range [-180, 180]}"
@@ -121,7 +118,7 @@ class Command:  # pylint: disable=too-many-instance-attributes
             yaw_change %= 360
             if yaw_change > 180:
                 yaw_change -= 360
-            self.response_queue.queue.put(f"CHANGING_YAW: {yaw_change}")
+            queued.append(f"CHANGING_YAW: {yaw_change}")
 
         if abs(telemetry_data.z - self.target.z) > 0.5 or abs(telemetry_data.yaw - angle) > (
             math.pi / 36
@@ -140,7 +137,7 @@ class Command:  # pylint: disable=too-many-instance-attributes
                 self.target.z,
             )
         # Positive angle is counter-clockwise as in a right handed system
-
+        return queued
 
 # =================================================================================================
 #                            ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑

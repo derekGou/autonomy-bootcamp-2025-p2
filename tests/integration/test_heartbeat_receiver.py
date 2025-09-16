@@ -128,7 +128,7 @@ def main() -> int:
     threading.Timer(
         HEARTBEAT_PERIOD * (NUM_TRIALS * 2 + DISCONNECT_THRESHOLD + NUM_DISCONNECTS + 2),
         stop,
-        (controller,state_queue),
+        (controller, state_queue),
     ).start()
 
     # Read the main queue (worker outputs)

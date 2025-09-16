@@ -21,7 +21,7 @@ def telemetry_worker(
     connection: mavutil.mavfile,
     controller: worker_controller.WorkerController,
     queue: queue_proxy_wrapper.QueueProxyWrapper,
-    period: int
+    period: int,
 ) -> None:
     """
     Worker process.

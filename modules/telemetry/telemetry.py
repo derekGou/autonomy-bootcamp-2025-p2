@@ -2,8 +2,9 @@
 Telemetry gathering logic.
 """
 
-from pymavlink import mavutil
 import time
+
+from pymavlink import mavutil
 
 from ..common.modules.logger import logger
 
@@ -121,7 +122,7 @@ class Telemetry:
 
         # Only return if we have both types
         if not hasattr(self, "last_position") or not hasattr(self, "last_attitude"):
-            if time.time()-self.last_time>=1:
+            if time.time() - self.last_time >= 1:
                 self.last_attitude = None
                 self.last_position = None
                 self.last_time = time.time()

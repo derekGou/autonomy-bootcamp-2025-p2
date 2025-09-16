@@ -22,7 +22,7 @@ def heartbeat_receiver_worker(
     controller: worker_controller.WorkerController,
     queue: queue_proxy_wrapper.QueueProxyWrapper,
     period: int,
-    main_logger: logger.Logger
+    main_logger: logger.Logger,
 ) -> None:
     """
     Worker process.

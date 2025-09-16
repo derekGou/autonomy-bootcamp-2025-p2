@@ -7,7 +7,6 @@ import time
 
 from pymavlink import mavutil
 
-from utilities.workers import queue_proxy_wrapper
 from ..common.modules.logger import logger
 
 
@@ -44,9 +43,7 @@ class Command:  # pylint: disable=too-many-instance-attributes
         Falliable create (instantiation) method to create a Command object.
         """
         try:
-            command = cls(
-                cls.__private_key, connection, target, local_logger
-            )
+            command = cls(cls.__private_key, connection, target, local_logger)
             return [True, command]
         except (OSError, ValueError, EOFError):
             return [False, None]
@@ -66,10 +63,7 @@ class Command:  # pylint: disable=too-many-instance-attributes
         self.start = None
         # Do any intializiation here
 
-    def run(
-        self,
-        data
-    ) -> None:
+    def run(self, data) -> None:
         """
         Make a decision based on received telemetry data.
         """
@@ -84,7 +78,7 @@ class Command:  # pylint: disable=too-many-instance-attributes
             avg_v = [
                 (telemetry_data.x - self.start.x) / float(curr_time),
                 (telemetry_data.y - self.start.y) / float(curr_time),
-                (telemetry_data.z- self.start.z) / float(curr_time),
+                (telemetry_data.z - self.start.z) / float(curr_time),
             ]
         else:
             avg_v = 0
@@ -96,7 +90,7 @@ class Command:  # pylint: disable=too-many-instance-attributes
         # Adjust height using the comand MAV_CMD_CONDITION_CHANGE_ALT (113)
         # String to return to main: "CHANGE_ALTITUDE: {amount you changed it by, delta height in meters}"
         queued = []
-        
+
         if abs(telemetry_data.z - self.target.z) > 0.5:
             queued.append(f"CHANGE_ALTITUDE: {self.target.z-telemetry_data.z}")
 
@@ -138,6 +132,7 @@ class Command:  # pylint: disable=too-many-instance-attributes
             )
         # Positive angle is counter-clockwise as in a right handed system
         return queued
+
 
 # =================================================================================================
 #                            ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑

@@ -6,6 +6,7 @@ import math
 import time
 
 from pymavlink import mavutil
+from modules.telemetry import telemetry
 
 from ..common.modules.logger import logger
 
@@ -63,7 +64,7 @@ class Command:  # pylint: disable=too-many-instance-attributes
         self.start = None
         # Do any intializiation here
 
-    def run(self, data) -> None:
+    def run(self, data: telemetry.TelemetryData) -> None:
         """
         Make a decision based on received telemetry data.
         """

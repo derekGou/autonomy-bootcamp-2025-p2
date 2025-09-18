@@ -242,9 +242,7 @@ def main() -> int:
     # Read the main queue (worker outputs)
     threading.Thread(target=read_queue, args=(main_logger, response_queue)).start()
 
-    command_worker.command_worker(
-        connection, TARGET, data_queue, response_queue, controller
-    )
+    command_worker.command_worker(connection, TARGET, data_queue, response_queue, controller)
     # =============================================================================================
     #                          ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑
     # =============================================================================================

@@ -102,7 +102,7 @@ def main() -> int:
         target=heartbeat_sender_worker.heartbeat_sender_worker,
         work_arguments=(connection, HEARTBEAT_PERIOD),
         input_queues=[],
-        output_queues=[heartbeat_queue],
+        output_queues=[],
         controller=controller,
         local_logger=main_logger,
     )
@@ -119,7 +119,7 @@ def main() -> int:
             connection,
             HEARTBEAT_PERIOD,
         ),
-        input_queues=[heartbeat_queue],
+        input_queues=[],
         output_queues=[],
         controller=controller,
         local_logger=main_logger,

@@ -4,7 +4,6 @@ Command worker to make decisions based on Telemetry Data.
 
 import os
 import pathlib
-import time
 
 from pymavlink import mavutil
 
@@ -23,7 +22,6 @@ def command_worker(
     data_queue: queue_proxy_wrapper.QueueProxyWrapper,
     response_queue: queue_proxy_wrapper.QueueProxyWrapper,
     controller: worker_controller.WorkerController,
-    period: int,
     # Add other necessary worker arguments here
 ) -> None:
     """
@@ -34,7 +32,6 @@ def command_worker(
     data_queue: queue to read test telemetry data
     response_queue: queue to pass results to
     controller: worker controller to control running/stopping of command worker
-    period: period of time between messages
     """
     # =============================================================================================
     #                          ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑
@@ -68,13 +65,14 @@ def command_worker(
     # Main loop: do work.
     while not controller.is_exit_requested():
         try:
-            telemetry_data = data_queue.queue.get()
-            queues = command_worker_object.run(telemetry_data)
-            for q in queues:
-                response_queue.queue.put(q)
+            if not data_queue.queue.empty():
+                telemetry_data = data_queue.queue.get()
+                if telemetry_data:
+                    queues = command_worker_object.run(telemetry_data)
+                for q in queues:
+                    response_queue.queue.put(q)
         except (OSError, ValueError, EOFError) as e:
             local_logger.error(f"Error in command worker: {e}", True)
-        time.sleep(period)
 
 
 # =================================================================================================

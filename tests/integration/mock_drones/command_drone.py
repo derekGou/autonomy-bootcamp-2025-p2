@@ -77,7 +77,7 @@ def main() -> int:
 
     msg = connection.recv_match(type="COMMAND_LONG", blocking=True, timeout=TIMEOUT)
     if msg and msg.get_type() == "COMMAND_LONG":
-        local_logger.error("Recieved extra command")
+        local_logger.error(msg)
         return -9
 
     local_logger.info("Passed!")

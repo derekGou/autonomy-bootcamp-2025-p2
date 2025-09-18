@@ -21,7 +21,7 @@ MOCK_DRONE_MODULE = "tests.integration.mock_drones.telemetry_drone"
 CONNECTION_STRING = "tcp:localhost:12345"
 
 # Please do not modify these, these are for the test cases (but do take note of them!)
-TELEMETRY_PERIOD = 1
+TELEMETRY_PERIOD = 1 / 3
 NUM_TRIALS = 5
 NUM_FAILS = 3
 

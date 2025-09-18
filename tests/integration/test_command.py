@@ -243,7 +243,7 @@ def main() -> int:
     threading.Thread(target=read_queue, args=(main_logger, response_queue)).start()
 
     command_worker.command_worker(
-        connection, TARGET, data_queue, response_queue, controller, TELEMETRY_PERIOD
+        connection, TARGET, data_queue, response_queue, controller
     )
     # =============================================================================================
     #                          ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑

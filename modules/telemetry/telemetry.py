@@ -131,11 +131,9 @@ class Telemetry:
             attitude = self.last_attitude
             if position is not None and attitude is not None:
                 telemetry_data = TelemetryData(
-                    time_since_boot=int(
-                        max(
-                            getattr(position, "time_boot_ms", 0),
-                            getattr(attitude, "time_boot_ms", 0),
-                        )
+                    time_since_boot=max(
+                        getattr(position, "time_boot_ms", 0),
+                        getattr(attitude, "time_boot_ms", 0),
                     ),
                     x=position.x,
                     y=position.y,

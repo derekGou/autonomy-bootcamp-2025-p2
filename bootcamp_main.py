@@ -185,8 +185,7 @@ def main() -> int:
                 if res:
                     if res == "Disconnected":
                         break
-                    else:
-                        main_logger.info(f"Main received: {res}", False)
+                    main_logger.info(f"Main received: {res}", False)
             except queue.Empty:
                 continue
     # Stop the processes

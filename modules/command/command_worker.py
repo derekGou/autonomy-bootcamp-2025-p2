@@ -64,6 +64,7 @@ def command_worker(
         return
     # Main loop: do work.
     while not controller.is_exit_requested():
+        controller.check_pause()
         try:
             if not data_queue.queue.empty():
                 telemetry_data = data_queue.queue.get()

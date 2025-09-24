@@ -19,8 +19,8 @@ from ..common.modules.logger import logger
 # =================================================================================================
 def heartbeat_receiver_worker(
     connection: mavutil.mavfile,
-    controller: worker_controller.WorkerController,
     queue: queue_proxy_wrapper.QueueProxyWrapper,
+    controller: worker_controller.WorkerController,
     period: int,
     main_logger: logger.Logger,
 ) -> None:
@@ -60,6 +60,7 @@ def heartbeat_receiver_worker(
     # Main loop: do work.
 
     while not controller.is_exit_requested():
+        controller.check_pause()
         receiver.run()
         current_state = receiver.state
         queue.queue.put(current_state)

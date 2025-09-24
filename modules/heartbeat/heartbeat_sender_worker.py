@@ -56,6 +56,7 @@ def heartbeat_sender_worker(
     local_logger.info("HeartbeatSender Initialized")
     # Main loop: do work.
     while not controller.is_exit_requested():
+        controller.check_pause()
         try:
             sender.run(local_logger)
         except (OSError, ValueError, EOFError) as e:

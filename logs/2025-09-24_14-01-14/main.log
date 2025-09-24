@@ -1,0 +1,28 @@
+14:01:14: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/modules/common/modules/logger/logger_main_setup.py | setup_main_logger | 62] main logger initialized
+14:01:14: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | main | 135] Connected!
+14:01:14: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGE_ALTITUDE: 1
+14:01:15: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGE_ALTITUDE: -1
+14:01:18: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: 63.43494882292201
+14:01:18: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: 90.0
+14:01:19: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: 116.56505117707799
+14:01:19: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: 45.0
+14:01:20: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: 63.43494882292201
+14:01:20: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: 90.0
+14:01:21: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: 26.565051177077976
+14:01:21: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: 45.0
+14:01:22: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: 90.0
+14:01:22: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: 45.0
+14:01:23: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: 90.0
+14:01:23: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: 135.0
+14:01:24: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: -26.565051177077994
+14:01:24: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: -45.0
+14:01:25: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: -90.0
+14:01:25: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: -45.0
+14:01:26: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: -90.0
+14:01:26: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: -135.0
+14:01:27: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: -63.43494882292201
+14:01:27: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: -90.0
+14:01:28: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: -116.565051177078
+14:01:28: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: -45.0
+14:01:29: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: -63.43494882292201
+14:01:29: [INFO] [/Users/derekgou/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 79] CHANGING_YAW: -90.0

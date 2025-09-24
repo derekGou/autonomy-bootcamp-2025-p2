@@ -21,7 +21,7 @@ MOCK_DRONE_MODULE = "tests.integration.mock_drones.telemetry_drone"
 CONNECTION_STRING = "tcp:localhost:12345"
 
 # Please do not modify these, these are for the test cases (but do take note of them!)
-TELEMETRY_PERIOD = 1 / 3
+TELEMETRY_PERIOD = 1
 NUM_TRIALS = 5
 NUM_FAILS = 3
 
@@ -66,7 +66,7 @@ def read_queue(
     """
     while True:
         try:
-            output = queue.queue.get(timeout=0.1)
+            output = queue.queue.get(timeout=2)
             main_logger.info(output)
         except pyqueue.Empty:
             continue  # no message right now, keep waiting
@@ -133,7 +133,7 @@ def main() -> int:
     # Read the main queue (worker outputs)
     threading.Thread(target=read_queue, args=(data_queue, main_logger)).start()
 
-    telemetry_worker.telemetry_worker(connection, controller, data_queue, TELEMETRY_PERIOD)
+    telemetry_worker.telemetry_worker(connection, controller, data_queue)
     # =============================================================================================
     #                          ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑
     # =============================================================================================

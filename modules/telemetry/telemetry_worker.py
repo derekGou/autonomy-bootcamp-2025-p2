@@ -21,7 +21,6 @@ def telemetry_worker(
     connection: mavutil.mavfile,
     controller: worker_controller.WorkerController,
     queue: queue_proxy_wrapper.QueueProxyWrapper,
-    period: int,
 ) -> None:
     """
     Worker process.
@@ -60,19 +59,13 @@ def telemetry_worker(
     local_logger.info("Telemetry worker started", True)
 
     while not controller.is_exit_requested():
-        try:
-            while True:
-                telemetry_data = telemetry_object.run()
-                if telemetry_data:
-                    queue.queue.put(telemetry_data)
-                    local_logger.info(f"Telemetry data queued: {telemetry_data}", False)
-                else:
-                    local_logger.error("Missing Telemetry data", True)
-                time.sleep(period)
-
-        except (OSError, ValueError, EOFError) as e:
-            local_logger.error(f"Telemetry worker error: {e}", True)
-            continue
+        telemetry_data = telemetry_object.run()
+        if telemetry_data:
+            queue.queue.put(telemetry_data)
+            local_logger.info(f"Telemetry data queued: {telemetry_data}", False)
+        else:
+            local_logger.info("No data received")
+        time.sleep(0.1)
 
     local_logger.info("Telemetry worker stopped", True)
 

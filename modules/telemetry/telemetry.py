@@ -109,31 +109,29 @@ class Telemetry:
         Receive LOCAL_POSITION_NED and ATTITUDE messages from the drone,
         combining them together to form a single TelemetryData object.
         """
-        msg = self.connection.recv_match(blocking=False)
-        if msg is None:
-            return None
+        self.last_time = time.time()
+        while (time.time() - self.last_time) < 1:
+            msg = self.connection.recv_match(blocking=False)
+            if msg is None:
+                continue
 
-        if msg.get_type() == "LOCAL_POSITION_NED":
-            self.last_position = msg
-            self.last_time = time.time()
-        elif msg.get_type() == "ATTITUDE":
-            self.last_attitude = msg
-            self.last_time = time.time()
-
-        # Only return if we have both types
-        if not hasattr(self, "last_position") or not hasattr(self, "last_attitude"):
-            if time.time() - self.last_time >= 1:
-                self.last_attitude = None
-                self.last_position = None
+            if msg.get_type() == "LOCAL_POSITION_NED":
+                self.last_position = msg
                 self.last_time = time.time()
-        else:
+            elif msg.get_type() == "ATTITUDE":
+                self.last_attitude = msg
+                self.last_time = time.time()
+
+            # Only return if we have both types
+            if not self.last_position or not self.last_attitude:
+                continue
             position = self.last_position
             attitude = self.last_attitude
             if position is not None and attitude is not None:
                 telemetry_data = TelemetryData(
                     time_since_boot=max(
-                        getattr(position, "time_boot_ms", 0),
-                        getattr(attitude, "time_boot_ms", 0),
+                        self.last_attitude.time_boot_ms,
+                        self.last_position.time_boot_ms,
                     ),
                     x=position.x,
                     y=position.y,
@@ -148,8 +146,12 @@ class Telemetry:
                     pitch_speed=attitude.pitchspeed,
                     yaw_speed=attitude.yawspeed,
                 )
+                self.last_attitude = None
+                self.last_position = None
                 return telemetry_data
 
+        self.last_attitude = None
+        self.last_position = None
         return None
 
 

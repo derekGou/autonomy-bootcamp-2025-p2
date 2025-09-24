@@ -89,6 +89,7 @@ def main() -> int:
     manager = mp.Manager()
 
     # Create queues
+    receiver_queue = queue_proxy_wrapper.QueueProxyWrapper(manager, TELEMETRY_QUEUE_MAXSIZE)
     telemetry_queue = queue_proxy_wrapper.QueueProxyWrapper(manager, TELEMETRY_QUEUE_MAXSIZE)
     command_queue = queue_proxy_wrapper.QueueProxyWrapper(manager, COMMAND_QUEUE_MAXSIZE)
     heartbeat_queue = queue_proxy_wrapper.QueueProxyWrapper(manager, HEARTBEAT_QUEUE_MAXSIZE)
@@ -120,7 +121,7 @@ def main() -> int:
             HEARTBEAT_PERIOD,
         ),
         input_queues=[],
-        output_queues=[],
+        output_queues=[receiver_queue],
         controller=controller,
         local_logger=main_logger,
     )
@@ -182,7 +183,10 @@ def main() -> int:
             try:
                 res = q.queue.get_nowait()  # non-blocking
                 if res:
-                    main_logger.info(f"Main received: {res}", False)
+                    if res == "Disconnected":
+                        break
+                    else:
+                        main_logger.info(f"Main received: {res}", False)
             except queue.Empty:
                 continue
     # Stop the processes

@@ -65,7 +65,7 @@ class Command:  # pylint: disable=too-many-instance-attributes
         self.v_z = []
         # Do any intializiation here
 
-    def run(self, data: telemetry.TelemetryData) -> None:
+    def run(self, data: telemetry.TelemetryData) -> list:
         """
         Make a decision based on received telemetry data.
         """
@@ -102,9 +102,9 @@ class Command:  # pylint: disable=too-many-instance-attributes
                     mavutil.mavlink.MAV_CMD_CONDITION_CHANGE_ALT,
                     0,
                     1,
-                    5,
                     0,
-                    1,
+                    0,
+                    0,
                     0,
                     0,
                     self.target.z,
@@ -124,19 +124,18 @@ class Command:  # pylint: disable=too-many-instance-attributes
             elif yaw_diff < -180:
                 yaw_diff += 360
             if abs(yaw_diff) > (5) and not abs(telemetry_data.z - self.target.z) > 0.5:
-                self.local_logger.info(yaw_diff)
                 self.connection.mav.command_long_send(
                     1,
                     0,
                     mavutil.mavlink.MAV_CMD_CONDITION_YAW,
                     0,
-                    1,
-                    5,
-                    0,
-                    1,
-                    0,
-                    0,
                     yaw_diff,
+                    5,
+                    yaw_diff / abs(yaw_diff),
+                    1,
+                    0,
+                    0,
+                    0,
                 )
                 queued.append(f"CHANGING_YAW: {yaw_diff}")
 
